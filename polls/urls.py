@@ -1,10 +1,14 @@
 from django.conf.urls import url
 from polls import views
 
-urlpatterns = url[
-    url(r'^$', views.index, name='index'),
-    url(r'^(?P<question_id>\d+)/$', views.detail, name='detail'),
-    url(r'^(?P<question_id>\d+)/results/$', views.results, name='result'),
-    url(r'^(?P<queestion_id>\d+)/vote/%', views.vote, name='vote')
-]
+urlpatterns = [
 
+    # Example: /polls/
+    url(r'^$', views.index, name='index'),
+    # Example: /polls/1/
+    url(r'^(?P<question_id>\d+)/$', views.detail, name='detail'),
+    # Example: /polls/1/vote
+    url(r'^(?P<question_id>\d+)/vote/$', views.vote, name='vote'),
+    # Example: /polls/1/result
+    url(r'^(?P<question_id>\d+)/result/$', views.result, name='result'),
+]
